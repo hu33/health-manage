@@ -1,0 +1,49 @@
+/* miniprogram/pages/weightManage/weightManage.wxss */
+
+.progress-level-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15rpx;
+  font-size: 28rpx;
+}
+
+.result-container {
+  margin: 30rpx;
+  box-sizing: border-box;
+}
+
+.result-container .text-black {
+  font-size: 32rpx;
+}
+
+.result-container .text-bmi-0 {
+  color: #ccff33;
+}
+
+.result-container .text-bmi-1 {
+  color: #8dc63f;
+}
+
+.result-container .text-bmi-2 {
+  color: #cc6633;
+}
+
+.result-container .text-bmi-3 {
+  color: #ff0000;
+}
+
+.result-container .analyse-content {
+  padding: 50rpx;
+}
+
+.result-container .analyse-content .analyse-item{
+  padding-top: 20rpx;
+}
+
+.result-container .analyse-content :first-child{
+  padding-top: 0;
+}
+
+.result-container .analyse-content .bmi-analyse-content {
+  padding-top: 30rpx;
+}

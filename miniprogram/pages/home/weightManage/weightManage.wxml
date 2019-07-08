@@ -1,0 +1,95 @@
+<!--miniprogram/pages/weightManage/weightManage.wxml-->
+
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">体重管理</view>
+</cu-custom>
+
+<view class='container'>
+
+  <view class='info-container'>
+    <form>
+      	<view class="cu-form-group margin-top">
+	    	  <view class="title">身高(cm)</view>
+	    	  <input id='heightInput' bindblur='heightChange' focus='{{heightFocus}}' type='digit'></input>
+	      </view>
+  
+      	<view class="cu-form-group">
+		      <view class="title">体重(kg)</view>
+		      <input bindblur='weightChange' focus='{{weightFocus}}' type='digit'></input>
+	      </view>
+
+        <view class="cu-form-group">
+		      <view class="title">性別</view>
+		      <picker bindchange="genderChange" value="{{gender}}" range="{{genderData}}" focus='{{genderFocus}}'>
+			      <view class="picker">
+				      {{gender || '请选择'}}
+			      </view>
+		      </picker>
+	      </view>
+
+        <view class="cu-form-group">
+		      <view class="title">年龄</view>
+          <input id='ageInput' bindblur='ageChange' focus='{{ageFocus}}' type='number'></input>
+	      </view>
+
+    </form>
+   
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-cyan margin-tb-sm lg" bindtap="weightAnalyze">体重分析</button>
+    </view>
+
+  </view>
+
+  <view class='result-container bg-white'>
+    <view class='result-item-container'>
+      <view class="cu-bar bg-white solid-bottom">
+        <view class='action'>
+          <text class='cuIcon-titles text-orange '></text> 理想体重
+        </view>
+      </view>
+      <view class='analyse-content'>
+          <view class='analyse-item'>
+            按照您的身高，你的正常体重范围为{{lowRangeWeight}}~{{highRangeWeight}}(kg)
+          </view>
+          <view class='analyse-item'>
+            按BMI计算得出的理想体重为{{bmiPerfectWeight}}kg
+          </view>
+          <view class='analyse-item'>
+            按现代营养学得出的理想体重为{{perfectWeight}}kg
+          </view>
+          <view class='analyse-item'>
+            根据自己的需求选择一个理想体重，然后向这个目标前进吧~
+          </view>
+        </view>
+    </view>
+    <view class='result-item-container'>
+
+      <view class="cu-bar bg-white solid-bottom">
+        <view class='action'>
+          <text class='cuIcon-titles text-orange '></text> BMI
+        </view>
+      </view>
+      
+      <view class='analyse-content'>
+          <view class='progress-container text-center'>
+            <view class="cu-progress radius">
+              <view class="progress-bg" style="width:{{item.width}};background:{{item.color}}" wx:for="{{bmiLevelList}}" wx:key> {{item.value}}</view>
+            </view>
+            <view class='progress-level-container'>
+              <text class='progress-level' style='width:{{item.width}};' wx:for="{{bmiLevelList}}" wx:key>{{item.label}}</text>
+            </view>
+          </view>
+        <view class='bmi-analyse-content'>
+          <view class='analyse-item'>
+            您的BMI值为{{bmi}},{{bmiLevelList[bmiLevel].des}}
+          </view>
+          <view class='analyse-item'>
+            {{bmiSug}}
+          </view>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+</view>

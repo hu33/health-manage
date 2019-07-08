@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/weightManage/weightManage",
+    "pages/home/foodRecommend/foodRecommend",
+    "pages/home/riskAssess/riskAssess",
+    "pages/home/home"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "Color UI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  }
+}
