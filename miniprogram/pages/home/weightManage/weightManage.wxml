@@ -6,7 +6,6 @@
 </cu-custom>
 
 <view class='container'>
-
   <view class='info-container'>
     <form>
       	<view class="cu-form-group margin-top">
@@ -40,37 +39,13 @@
     </view>
 
   </view>
-
-  <view class='result-container bg-white'>
+  <view class='result-container bg-white' wx:if='{{showResult}}'>
     <view class='result-item-container'>
       <view class="cu-bar bg-white solid-bottom">
         <view class='action'>
-          <text class='cuIcon-titles text-orange '></text> 理想体重
+          <text class='cuIcon-titles text-cyan' data-target='bmi'></text> BMI(体质指数)
         </view>
       </view>
-      <view class='analyse-content'>
-          <view class='analyse-item'>
-            按照您的身高，你的正常体重范围为{{lowRangeWeight}}~{{highRangeWeight}}(kg)
-          </view>
-          <view class='analyse-item'>
-            按BMI计算得出的理想体重为{{bmiPerfectWeight}}kg
-          </view>
-          <view class='analyse-item'>
-            按现代营养学得出的理想体重为{{perfectWeight}}kg
-          </view>
-          <view class='analyse-item'>
-            根据自己的需求选择一个理想体重，然后向这个目标前进吧~
-          </view>
-        </view>
-    </view>
-    <view class='result-item-container'>
-
-      <view class="cu-bar bg-white solid-bottom">
-        <view class='action'>
-          <text class='cuIcon-titles text-orange '></text> BMI
-        </view>
-      </view>
-      
       <view class='analyse-content'>
           <view class='progress-container text-center'>
             <view class="cu-progress radius">
@@ -82,14 +57,97 @@
           </view>
         <view class='bmi-analyse-content'>
           <view class='analyse-item'>
-            您的BMI值为{{bmi}},{{bmiLevelList[bmiLevel].des}}
+            <text class="cuIcon-title text-orange"></text>
+            您的BMI值为<text class='text-orange text-bold'>{{bmi}}</text>,{{bmiLevelList[bmiLevel].des}}
           </view>
           <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
             {{bmiSug}}
           </view>
         </view>
       </view>
-      
+    </view>
+    <view class='result-item-container'>
+      <view class="cu-bar bg-white solid-bottom">
+        <view class='action'>
+          <text class='cuIcon-titles text-cyan '></text> 理想体重
+        </view>
+      </view>
+      <view class='analyse-content'>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            你的正常体重范围为<text class='text-orange text-bold'>{{lowRangeWeight}}~{{highRangeWeight}}</text>(kg)
+          </view>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            按BMI计算得出的理想体重为<text class='text-orange text-bold'>{{bmiPerfectWeight}}</text>kg
+          </view>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            按现代营养学得出的理想体重为<text class='text-orange text-bold'>{{perfectWeight}}</text>kg
+          </view>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            根据自己的需求选择一个理想体重，然后向这个目标前进吧~
+          </view>
+        </view>
+    </view>
+    <view class='result-item-container'>
+      <view class="cu-bar bg-white solid-bottom">
+        <view class='action'>
+          <text class='cuIcon-titles text-cyan '></text> BMR(基础代谢率)
+        </view>
+      </view>
+      <view class='analyse-content'>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            您的BMR为<text class='text-orange text-bold'>{{bmr}}</text>千卡/天（Mifflin-St公式计算结果）
+          </view>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            若需要减肥，则减肥最佳摄入量为（BMR+耗能-500）千卡
+          </view>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            减肥的本质就是控制能量摄入，提高能量消耗，俗称“管住嘴，迈开腿”~~
+          </view>
+        </view>
+    </view>
+    <view class='result-item-container'>
+      <view class="cu-bar bg-white solid-bottom">
+        <view class='action'>
+          <text class='cuIcon-titles text-cyan '></text> 燃脂心率
+        </view>
+      </view>
+      <view class='analyse-content'>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            您的最高心率为<text class='text-orange text-bold'>{{mhr}}</text>次/分
+          </view>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            有氧运动最佳心率区间为<text class='text-orange text-bold'>{{lowRangeBhr}}~{{highRangeBhr}}</text>(次/分)，心率处于该区间时燃脂效果最好哦~
+          </view>
+        </view>
+    </view>
+  </view>
+  <view class='note-container'>
+    <view>
+      注：本工具只用于日常估算，更为复杂精准的指标请到相关机构进行检测
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{showModal ? 'show' : ''}}" >
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">Modal标题</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-cyan"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      Modal 内容。
     </view>
   </view>
 </view>

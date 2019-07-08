@@ -17,14 +17,22 @@ Page({
     bmiPerfectWeight: 0,
     lowRangeWeight: 0,
     highRangeWeight: 0,
+    bmr: 0,
+    mhr: 0,
+    lowRangeBhr: 0,
+    highRangeBhr: 0,
     heightFocus: true,
     weightFocus: false,
     genderFocus: false,
     ageFocus: false,
+    showResult: false,
+    showModal: false,
+    modalTitle: '',
+    modalContent: '',
     bmiLevelList: [{
       level: 0,
       value: '<=18.4',
-      label: '消瘦',
+      label: '轻体重',
       des:'属于偏瘦身材哦',
       color: '#ccff33',
       width: '22%'
@@ -81,8 +89,9 @@ Page({
       return;
     }
 
+    const _data = this.data;
     // 计算BMI值
-    const _bmi = (this.data.weight / (this.data.height * this.data.height / 10000)).toFixed(1);
+    const _bmi = (_data.weight / (_data.height * _data.height / 10000)).toFixed(1);
     
     // 计算BMILevel
     let _bmiLevel = 0;
@@ -98,22 +107,27 @@ Page({
 
     // 计算体重相关数据
     let _bmiPerfectWeight = 0;
-
     let _perfectWeight = 0;
     let _lowRangeWeight = 0;
     let _highRangeWeight = 0;
-    const _height = this.data.height;
-    if (this.data.gender === '男') {
+    let _bmr = 0;
+    const _height = _data.height;
+    if (_data.gender === '男') {
       _bmiPerfectWeight = (22.2 * _height * _height / 10000).toFixed(1);
       _perfectWeight = _height - 105;
+      _bmr = this._getBmr('男', _data.height, _data.weight, _data.age);
     } else {
       _bmiPerfectWeight = (21.9 * _height * _height / 10000).toFixed(1);
       _perfectWeight = ((_height - 100) * 0.85).toFixed(1);
+      _bmr = this._getBmr('女', _data.height, _data.weight, _data.age);
     }
     _lowRangeWeight = (18.5 * _height * _height / 10000).toFixed(1);
     _highRangeWeight = (23.9 * _height * _height / 10000).toFixed(1);
     const _bmiSug = this._getBmiSug(_bmiLevel);
-    console.log(this.data);
+    const _mhr = this._getMhr(_data.age);
+    const _lowRangeBhr = Math.round(_mhr * 0.6);
+    const _highRangeBhr = Math.round(_mhr * 0.75);
+    console.log(_data);
     this.setData({
       bmi: _bmi,
       bmiLevel: _bmiLevel,
@@ -121,7 +135,12 @@ Page({
       perfectWeight: _perfectWeight,
       lowRangeWeight: _lowRangeWeight,
       highRangeWeight: _highRangeWeight,
-      bmiSug: _bmiSug
+      bmiSug: _bmiSug,
+      showResult: true,
+      bmr: _bmr,
+      mhr: _mhr,
+      lowRangeBhr: _lowRangeBhr,
+      highRangeBhr: _highRangeBhr
     })
   },
 
@@ -219,6 +238,22 @@ Page({
     return _bmiSug;
   },
 
+  // 计算bmr
+  _getBmr(gender, height, weight, age) {
+    let _bmr = 0;
+    if (gender === '男') {
+      _bmr = 9.99 * weight + 6.25 * height - 4.92 * age + 5;
+    } else {
+      _bmr = 9.99 * weight + 6.26 * height - 4.92 * age - 161;
+    }
+    return Math.round(_bmr);
+  },
+
+  // 计算mhr
+  _getMhr(age) {
+    return 220 - age;
+  },
+
   // form元素聚焦
   formFocus(ele) {
     switch(ele) {
@@ -255,5 +290,18 @@ Page({
         });
         break
     }
+  },
+
+  showModal(e){
+    console.log('e.currentTarget.dataset:', e.currentTarget.dataset);
+    this.setData({
+      showModal: true
+    })
+  },
+
+  hideModal(e){
+    this.setData({
+      showModal: false
+    })
   }
 })
