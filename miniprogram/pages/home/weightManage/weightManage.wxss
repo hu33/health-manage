@@ -38,7 +38,8 @@
 }
 
 .result-container .analyse-content .analyse-item{
-  padding-top: 20rpx;
+  padding-top: 10rpx;
+  line-height: 50rpx;
 }
 
 .result-container .analyse-content :first-child{
@@ -55,4 +56,10 @@
   color: #777;
   line-height: 40rpx;
   font-size: 25rpx;
+}
+
+.modal-content {
+  text-align:  left;
+  line-height: 50prx;
+  padding: 50prx 70rpx;
 }

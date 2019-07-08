@@ -1,10 +1,25 @@
 const app = getApp();
 
-Page({
+const modalData = {
+  'bmi' : {
+    title: '关于BMI',
+    content: 'BMI指数（Body Mass Index）是国际上常用的衡量人体胖瘦程度以及是否健康的标准之一。BMI与健康的关系各国各地都有所差别，在中国大陆，则以《中国成人超重和肥胖症预防控制指南》中的数据为标准，即本工具使用的判断标准。本标准适合于18-65岁的大多数人群，青少年、老年人及运动员等人群不适用。'
+  },
+  'perfectWeight': {
+    title: '关于健康体重',
+    content: '健康体重，是由疾病与体重相关性统计得出的，个人最为健康的体重状态。标准体重的计算公式很多，本工具的健康体重范围是通过BMI正常范围值（18.5~24）反向推算得出。过胖和过瘦都不利于健康哦，过胖会增加慢性病风险，过瘦会增加其他疾病危险性。合适的体重才是最健康的哦~'
+  },
+  'bmr': {
+    title: '关于BMR',
+    content: '基础代谢率（Basal Metabolic Rate，BMR）是指人体在基础状态下的能量代谢，即人体在清醒且安静的环境中，不受肌肉活动、环境温度、食物及精神紧张等影响时，维持基本生理活动（血液循环、呼吸及恒定的体温）所需的最低能量。准确的基础代谢率需要使用特殊仪器测量，但是为了方便，研究者们经过多年研究提出了多个计算公式来推算人群的BMR，本工具采用了最适合中国人体质的Mifflin-St公式进行BMR计算。该值为大致估算值，有一定误差，可用于日常j计算，严格的BMR需到医院进行测量。'
+  },
+  'bhr': {
+    title: '关于燃脂心率',
+    content: '运动时消耗的能量大多来自于体内糖分和脂肪的分解产生的热量，当身体主要靠燃烧脂肪来供能时，此时达到的运动心率则为燃烧心率区间。在燃脂心率区间强度下进行锻炼时，脂肪功能率最高，因此燃脂效果最好。但是减脂效果仅靠运动强度是不够的，还需根据运动时间来判定哦~'
+  }
+}
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
     height: 0,
     weight: 0,
@@ -26,7 +41,7 @@ Page({
     genderFocus: false,
     ageFocus: false,
     showResult: false,
-    showModal: false,
+    isModalShow: false,
     modalTitle: '',
     modalContent: '',
     bmiLevelList: [{
@@ -294,14 +309,18 @@ Page({
 
   showModal(e){
     console.log('e.currentTarget.dataset:', e.currentTarget.dataset);
+    const _modalTitle = modalData[e.currentTarget.dataset.target].title;
+    const _modalContent = modalData[e.currentTarget.dataset.target].content;
     this.setData({
-      showModal: true
+      isModalShow: true,
+      modalTitle: _modalTitle,
+      modalContent: _modalContent
     })
   },
 
   hideModal(e){
     this.setData({
-      showModal: false
+      isModalShow: false
     })
   }
 })
