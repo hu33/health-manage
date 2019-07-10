@@ -1,5 +1,1 @@
 /* miniprogram/pages/home/home.wxss */
-
-.homePage {
-  margin-top: 20rpx;
-}

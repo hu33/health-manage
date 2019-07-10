@@ -106,7 +106,7 @@ Page({
 
     const _data = this.data;
     // 计算BMI值
-    const _bmi = (_data.weight / (_data.height * _data.height / 10000)).toFixed(1);
+    const _bmi = this._getBmi(_data.height, _data.weight);
     
     // 计算BMILevel
     let _bmiLevel = 0;
@@ -193,9 +193,10 @@ Page({
       this.formFocus('weight');
       return false;
     } else {
-      if (_data.weight < 20 || _data.weight > 150) {
+      const _bmi = this._getBmi(_data.height, _data.weight);
+      if (_bmi < 10 || _bmi > 50) {
         wx.showToast({
-          title: '您这体重怕不是要吓屎我哦',
+          title: '您这体重是认真的吗？',
           icon: 'none',
           duration: 1500
         });
@@ -232,6 +233,10 @@ Page({
       }
     }
     return true;
+  },
+
+  _getBmi(height, weight) {
+    return (weight / height / height * 10000).toFixed(1); 
   },
 
   _getBmiSug(bmiLevel) {
