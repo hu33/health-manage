@@ -3,7 +3,7 @@
 .progress-level-container {
   display: flex;
   flex-direction: row;
-  margin-top: 15rpx;
+  margin-top: 20rpx;
   font-size: 28rpx;
 }
 
@@ -35,6 +35,14 @@
 .result-container .analyse-content {
   padding: 50rpx;
   background: #f8f8f8;
+}
+
+.result-container .analyse-content .cu-progress {
+  height: 32rpx;
+}
+
+.result-container .analyse-content .cu-progress .progress-bg{
+  font-size: 22rpx;
 }
 
 .result-container .analyse-content .analyse-item{

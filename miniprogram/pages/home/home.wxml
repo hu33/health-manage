@@ -6,12 +6,12 @@
       <view class="nav-name">{{item.EnglishTitle}}</view>
       <text class='cuIcon-{{item.icon}}'></text>
     </navigator> -->
-    <navigator open-type="navigate" hover-class='none' url="/pages/home/weightManage/weightManage" class="nav-li bg-cyan">
+    <navigator open-type="navigate" hover-class='none' url="/pages/home/weightManage/weightManage" class="nav-li bg-cyan" >
       <view class="nav-title">体重管理</view>
       <view class="nav-name">Weight Management</view>
       <text class='cuIcon-edit'></text>
     </navigator>
-    <view open-type="navigate" hover-class='none' class="nav-li bg-green" bindtap='foodRecTap'>
+    <view open-type="navigate" hover-class='none' class="nav-li bg-orange" bindtap='foodRecTap'>
       <view class="nav-title">自动配餐</view>
       <view class="nav-name">Food Recommendation</view>
       <text class='cuIcon-form'></text>
@@ -21,7 +21,7 @@
       <view class="nav-name">Risk Assessment</view>
       <text class='cuIcon-evaluate_fill'></text>
     </view>
-    <view open-type="navigate" hover-class='none'  class="nav-li bg-mauve action" bindtap='othersTap'>
+    <view open-type="navigate" hover-class='none'  class="nav-li bg-olive" bindtap='othersTap'>
       <view class="nav-title">其他</view>
       <view class="nav-name">Others</view>
       <text class='cuIcon-icon'></text>

@@ -49,28 +49,28 @@ Page({
       value: '<=18.4',
       label: '轻体重',
       des:'属于偏瘦身材哦',
-      color: '#ccff33',
+      color: '#ffcc33',
       width: '22%'
     }, {
         level: 1,
         value: '18.5~23.9',
         label: '正常',
         des: '很标准的身材呢',
-        color: '#8dc63f',
+        color: '#99cc33',
         width: '35%'
     }, {
         level: 2,
         label: '超重',
         des: '超重了哦',
         value: '24~27.9',
-        color: '#cc6633',
+        color: '#ff9966',
         width: '29%'
     }, {
         level: 3,
         value: '>=28',
         label: '肥胖',
         des: '已经属于肥胖了哦',
-        color: '#ff0000',
+        color: '#ff6666',
         width: '22%'
     }]
   },

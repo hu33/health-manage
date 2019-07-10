@@ -14,12 +14,12 @@ page {
 	/* Color 可以自定义相关配色 */
 	/* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 	/* 标准色 */
-	--red: #e54d42;
-	--orange: #f37b1d;
+	--red: #ff6666;
+	--orange: #ff9966;
 	--yellow: #fbbd08;
-	--olive: #8dc63f;
+	--olive: #99cc99;
 	--green: #39b54a;
-	--cyan: #1cbbb4;
+	--cyan: #66cccc;
 	--blue: #0081ff;
 	--purple: #6739b6;
 	--mauve: #9c26b0;
@@ -50,7 +50,7 @@ page {
 	--gradualGreen: linear-gradient(45deg, #39b54a, #8dc63f);
 	--gradualPurple: linear-gradient(45deg, #9000ff, #5e00ff);
 	--gradualPink: linear-gradient(45deg, #ec008c, #6739b6);
-	--gradualBlue: linear-gradient(45deg, #0081ff, #1cbbb4);
+	--gradualCyan: linear-gradient(45deg, #5599ff, #66cccc);
 	/* 阴影透明色 */
 	--ShadowSize: 6rpx 6rpx 8rpx;
 	--redShadow: rgba(204, 69, 59, 0.2);
@@ -3603,8 +3603,8 @@ scroll-view.cu-steps .cu-item {
 	color: var(--white);
 }
 
-.bg-gradual-blue {
-	background-image: var(--gradualBlue);
+.bg-gradual-cyan {
+	background-image: var(--gradualCyan);
 	color: var(--white);
 }
 
