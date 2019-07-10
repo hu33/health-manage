@@ -1,11 +1,31 @@
 <scroll-view scroll-y class="scrollPage homePage">
   <image src='/images/BasicsBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
   <view class='nav-list'>
-    <navigator open-type="navigate" hover-class='none' url="/pages/home/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+    <!-- <navigator open-type="navigate" hover-class='none' url="/pages/home/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
       <view class="nav-title">{{item.title}}</view>
       <view class="nav-name">{{item.EnglishTitle}}</view>
       <text class='cuIcon-{{item.icon}}'></text>
+    </navigator> -->
+    <navigator open-type="navigate" hover-class='none' url="/pages/home/weightManage/weightManage" class="nav-li bg-cyan">
+      <view class="nav-title">体重管理</view>
+      <view class="nav-name">Weight Management</view>
+      <text class='cuIcon-edit'></text>
     </navigator>
+    <view open-type="navigate" hover-class='none' class="nav-li bg-green" bindtap='foodRecTap'>
+      <view class="nav-title">自动配餐</view>
+      <view class="nav-name">Food Recommendation</view>
+      <text class='cuIcon-form'></text>
+    </view>
+    <view open-type="navigate" hover-class='none'  class="nav-li bg-red" bindtap='riskAssTap'>
+      <view class="nav-title">风险评估</view>
+      <view class="nav-name">Risk Assessment</view>
+      <text class='cuIcon-evaluate_fill'></text>
+    </view>
+    <view open-type="navigate" hover-class='none'  class="nav-li bg-mauve action" bindtap='othersTap'>
+      <view class="nav-title">其他</view>
+      <view class="nav-name">Others</view>
+      <text class='cuIcon-icon'></text>
+    </view>
   </view>
   <view class='cu-tabbar-height'></view>
 </scroll-view>

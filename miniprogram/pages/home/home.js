@@ -1,7 +1,7 @@
-//index.js
+//home.js
 const app = getApp()
 
-Component({
+Page({
   options: {
     addGlobalClass: true,
   },
@@ -35,5 +35,27 @@ Component({
       icon: 'icon'
     },
     ],
-  }
-})
+  },
+  foodRecTap() {
+    wx.showToast({
+      title: '敬请期待~',
+      icon: 'none',
+      duration: 1500
+    })
+  },
+  riskAssTap() {
+    wx.showToast({
+      title: '敬请期待~',
+      icon: 'none',
+      duration: 1500
+    })
+  },
+  othersTap() {
+    wx.showToast({
+      title: '还木有想好主题~',
+      icon: 'none',
+      duration: 1500
+    })
+  },
+}
+)
