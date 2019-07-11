@@ -61,7 +61,7 @@
         <view class='bmi-analyse-content'>
           <view class='analyse-item'>
             <text class="cuIcon-title text-orange"></text>
-            您的BMI值为<text class='text-orange text-bold'>{{bmi}}</text>,{{bmiLevelList[bmiLevel].des}}
+            您的BMI值为<text class='text-orange text-bold'>{{bmi}}</text>，{{bmiLevelList[bmiLevel].des}}
           </view>
           <view class='analyse-item'>
             <text class="cuIcon-title text-orange"></text>
@@ -86,7 +86,7 @@
           </view>
           <view class='analyse-item'>
             <text class="cuIcon-title text-orange"></text>
-            按BMI计算得出的标准体重为<text class='text-orange text-bold'>{{bmiPerfectWeight}}</text>kg
+            您的理想体重为<text class='text-orange text-bold'>{{bmiPerfectWeight}}</text>kg，还需<text class='text-orange text-bold'>{{loseOrAdd}}{{diffWeightValue}}</text>kg才能达到这个体重哦
           </view>
           <!-- <view class='analyse-item'>
             <text class="cuIcon-title text-orange"></text>
@@ -94,7 +94,7 @@
           </view> -->
           <view class='analyse-item'>
             <text class="cuIcon-title text-orange"></text>
-            根据自己的需求选择一个标准体重，然后向这个目标前进吧~
+            根据自己的需求先选择一个目标体重，然后向这个目标前进吧~
           </view>
         </view>
     </view>
@@ -139,6 +139,10 @@
           <view class='analyse-item'>
             <text class="cuIcon-title text-orange"></text>
             有氧运动最佳心率区间为<text class='text-orange text-bold'>{{lowRangeBhr}}~{{highRangeBhr}}</text>(次/分)，心率处于该区间时燃脂效果最好哦~
+          </view>
+          <view class='analyse-item'>
+            <text class="cuIcon-title text-orange"></text>
+            慢跑、游泳、健身操都是不错的有氧运动哦，快动起来吧~
           </view>
         </view>
     </view>

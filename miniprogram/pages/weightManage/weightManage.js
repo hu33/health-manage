@@ -32,6 +32,8 @@ Page({
     bmiPerfectWeight: 0,
     lowRangeWeight: 0,
     highRangeWeight: 0,
+    loseOrAdd: '',
+    diffWeightValue: 0,
     bmr: 0,
     mhr: 0,
     lowRangeBhr: 0,
@@ -138,6 +140,9 @@ Page({
     }
     _lowRangeWeight = (18.5 * _height * _height / 10000).toFixed(1);
     _highRangeWeight = (23.9 * _height * _height / 10000).toFixed(1);
+
+    const _loseOrAdd = _data.weight > _bmiPerfectWeight ? '减重' : '增重';
+    const _diffWeightValue = Math.abs((_data.weight - _bmiPerfectWeight).toFixed(1));
     const _bmiSug = this._getBmiSug(_bmiLevel);
     const _mhr = this._getMhr(_data.age);
     const _lowRangeBhr = Math.round(_mhr * 0.6);
@@ -150,6 +155,8 @@ Page({
       perfectWeight: _perfectWeight,
       lowRangeWeight: _lowRangeWeight,
       highRangeWeight: _highRangeWeight,
+      loseOrAdd: _loseOrAdd,
+      diffWeightValue: _diffWeightValue,
       bmiSug: _bmiSug,
       showResult: true,
       bmr: _bmr,
@@ -249,7 +256,7 @@ Page({
         _bmiSug = '身材蛮标准的嘛，继续保持哦~';
         break;
       case 2:
-        _bmiSug = '哦豁，超重了，要适当控制能量输入，增强体力活动呢~';
+        _bmiSug = '哦豁，超重了，要适当控制能量输入，增加体力活动呢~';
         break;
       case 3:
         _bmiSug = '已经是肥胖啦亲，很多慢性病都跟肥胖有关呢，还不赶快行动起来减肥！';
