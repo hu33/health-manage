@@ -1,10 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/home/weightManage/weightManage",
-    "pages/home/foodRecommend/foodRecommend",
-    "pages/home/riskAssess/riskAssess",
-    "pages/home/home"
+    "pages/weightManage/weightManage",
+    "pages/foodRecommend/foodRecommend",
+    "pages/riskAssess/riskAssess"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

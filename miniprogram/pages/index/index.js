@@ -1,19 +1,61 @@
 //index.js
+const app = getApp()
 
 Page({
-  data: {
-    PageCur: 'home'
+  options: {
+    addGlobalClass: true,
   },
-  NavChange(e) {
-    this.setData({
-      PageCur: e.currentTarget.dataset.cur
+  data: {
+    elements: [{
+      title: '体重管理',
+      EnglishTitle: 'Weight Management',
+      name: 'weightManage',
+      color: 'cyan',
+      icon: 'newsfill'
+    },
+    {
+      title: '自动配餐',
+      EnglishTitle: 'Food Recommendation',
+      name: 'foodRecommend',
+      color: 'blue',
+      icon: 'colorlens'
+    },
+    {
+      title: '风险评估',
+      EnglishTitle: 'Risk Assessment',
+      name: 'riskAssess',
+      color: 'purple',
+      icon: 'font'
+    },
+    {
+      title: '其他',
+      EnglishTitle: 'others',
+      name: 'others',
+      color: 'mauve',
+      icon: 'icon'
+    },
+    ],
+  },
+  foodRecTap() {
+    wx.showToast({
+      title: '敬请期待~',
+      icon: 'none',
+      duration: 1500
     })
   },
-  onShareAppMessage() {
-    return {
-      title: 'ColorUI-高颜值的小程序UI组件库',
-      imageUrl: '/images/share.jpg',
-      path: '/pages/index/index'
-    }
+  riskAssTap() {
+    wx.showToast({
+      title: '敬请期待~',
+      icon: 'none',
+      duration: 1500
+    })
   },
-})
+  othersTap() {
+    wx.showToast({
+      title: '还木有想好主题~',
+      icon: 'none',
+      duration: 1500
+    })
+  },
+}
+)
