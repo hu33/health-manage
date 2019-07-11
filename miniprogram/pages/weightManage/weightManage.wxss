@@ -60,7 +60,7 @@
 
 .note-container {
   text-align: center;
-  margin: 0 50rpx;
+  padding: 0 50rpx 30rpx 50rpx;
   color: #777;
   line-height: 40rpx;
   font-size: 25rpx;

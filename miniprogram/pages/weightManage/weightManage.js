@@ -95,8 +95,7 @@ Page({
   },
   ageChange(e) {
     this.setData({
-      age: Number(e.detail.value),
-      ageFocus: false
+      age: Number(e.detail.value)
     })
   },
 
