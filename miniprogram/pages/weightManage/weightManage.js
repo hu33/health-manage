@@ -46,6 +46,7 @@ Page({
     isModalShow: false,
     modalTitle: '',
     modalContent: '',
+    animationName: '',
     bmiLevelList: [{
       level: 0,
       value: '<=18.4',
@@ -161,8 +162,15 @@ Page({
       bmr: _bmr,
       mhr: _mhr,
       lowRangeBhr: _lowRangeBhr,
-      highRangeBhr: _highRangeBhr
+      highRangeBhr: _highRangeBhr,
+      animationName: 'slide-bottom'
     })
+    const _this = this;
+    setTimeout(function () {
+      _this.setData({
+        animationName: ''
+      })
+    }, 1000)
   },
 
   // 判断基本信息是否填写完整且有效

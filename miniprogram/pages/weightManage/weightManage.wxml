@@ -39,7 +39,7 @@
     </view>
 
   </view>
-  <view class='result-container bg-white' wx:if='{{showResult}}'>
+  <view class='result-container bg-white animation-{{animationName}}' wx:if='{{showResult}}'>
     <view class='result-item-container'>
       <view class="cu-bar bg-white solid-bottom">
         <view class='action'>
