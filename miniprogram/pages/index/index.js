@@ -36,6 +36,11 @@ Page({
     },
     ],
   },
+  onLoad(options) {
+    wx.showShareMenu({
+      withShareTicket: true
+    });
+  },
   foodRecTap() {
     wx.showToast({
       title: '敬请期待~',

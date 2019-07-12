@@ -77,6 +77,11 @@ Page({
         width: '22%'
     }]
   },
+  onLoad(options) {
+    wx.showShareMenu({
+      withShareTicket: true
+    });
+  },
   heightChange(e) {
     this.setData({
       height: Number(e.detail.value)
