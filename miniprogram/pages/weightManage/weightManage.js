@@ -82,6 +82,11 @@ Page({
       withShareTicket: true
     });
   },
+  onShareAppMessage() {
+    return {
+      title: '快来测测您的身材吧~'
+    }
+  },
   heightChange(e) {
     this.setData({
       height: Number(e.detail.value)

@@ -41,6 +41,11 @@ Page({
       withShareTicket: true
     });
   },
+  onShareAppMessage() {
+    return {
+      title: '快来管理一下您的健康吧~'
+    }
+  },
   foodRecTap() {
     wx.showToast({
       title: '敬请期待~',

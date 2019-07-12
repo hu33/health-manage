@@ -61,7 +61,7 @@
 .note-container {
   text-align: center;
   padding: 0 50rpx 30rpx 50rpx;
-  color: #777;
+  color: #999;
   line-height: 40rpx;
   font-size: 25rpx;
 }
@@ -70,4 +70,10 @@
   text-align:  left;
   line-height: 50prx;
   padding: 50prx 70rpx;
+}
+
+.result-container .btn-share {
+  height: 68rpx;
+  margin :0;
+  font-size: 30rpx;
 }
