@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "weightRecord": "/pages/weightManage/weightRecord/weightRecord",
+    "figureMeasure": "/pages/weightManage/figureMeasure/figureMeasure" 
+  }
 }

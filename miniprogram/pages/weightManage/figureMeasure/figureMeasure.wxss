@@ -1,0 +1,79 @@
+/* pages/weightManage/figureMeasure/figureMeasure.wxss */
+
+.progress-level-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+
+.result-container {
+  margin: 0 30rpx 30rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.result-container .text-black {
+  font-size: 32rpx;
+}
+
+.result-container .text-bmi-0 {
+  color: #ccff33;
+}
+
+.result-container .text-bmi-1 {
+  color: #8dc63f;
+}
+
+.result-container .text-bmi-2 {
+  color: #cc6633;
+}
+
+.result-container .text-bmi-3 {
+  color: #ff0000;
+}
+
+.result-container .analyse-content {
+  padding: 50rpx;
+  background: #f8f8f8;
+}
+
+.result-container .analyse-content .cu-progress {
+  height: 32rpx;
+}
+
+.result-container .analyse-content .cu-progress .progress-bg{
+  font-size: 22rpx;
+}
+
+.result-container .analyse-content .analyse-item{
+  padding-top: 10rpx;
+  line-height: 50rpx;
+}
+
+.result-container .analyse-content :first-child{
+  padding-top: 0;
+}
+
+.result-container .analyse-content .bmi-analyse-content {
+  padding-top: 40rpx;
+}
+
+.note-container {
+  text-align: center;
+  padding: 0 50rpx 30rpx 50rpx;
+  color: #999;
+  line-height: 40rpx;
+  font-size: 25rpx;
+}
+
+.modal-content {
+  text-align:  left;
+  line-height: 50prx;
+  padding: 50prx 70rpx;
+}
+
+.result-container .btn-share {
+  height: 68rpx;
+  margin :0;
+  font-size: 30rpx;
+}

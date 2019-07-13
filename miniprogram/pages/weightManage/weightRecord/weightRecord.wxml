@@ -1,0 +1,21 @@
+<!--pages/weightManage/weightRecord/weightRecord.wxml-->
+
+<cu-custom bgColor="bg-gradual-cyan" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">体重小本</view>
+</cu-custom>
+
+<view class='container'>
+  <view class='info-container bg-cyan'>
+    <view class='head'>
+      <view class='avatar'>头像</view>
+      <view class='headTitle'>已连续记录{{recordDays}}天</view>
+    </view>
+    <view class='curWeight'>{{curWeight}}</view>
+    <view>
+      <view>{{compareWeight}}</view>
+      <view>{{targetWeight}}</view>
+      <view>{{remainWeight}}</view>
+    </view>
+  </view>
+</view>
