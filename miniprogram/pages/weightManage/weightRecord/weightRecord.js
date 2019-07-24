@@ -71,6 +71,8 @@ Component({
       onInit: initChart
     },
     customBar: app.globalData.CustomBar,
+    dailyWeights: [45,45.25,45.35,45.5,45.75,46,46.5],
+    weekName: ['周一','周二','周三','周四','周五','周六','周日']
   },
   methods: {
 

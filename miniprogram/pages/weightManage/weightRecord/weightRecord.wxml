@@ -29,7 +29,13 @@
       </view>
     </view>
   </view>
+  <view class='record-panel'>
+    <view wx:for="{{dailyWeights}}" wx:key>{{item}}</view>
+  </view>
   <view class='echarts-panel'>
     <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ec}}"></ec-canvas>
+  </view>
+  <view class='date-panel'>
+    <view wx:for="{{weekName}}">{{item}}</view>
   </view>
 </view>
