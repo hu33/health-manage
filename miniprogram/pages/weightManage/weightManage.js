@@ -2,7 +2,9 @@ const app = getApp();
 
 Page({
   data: {
-    pageCur: 'weightRecord'
+    pageCur: 'weightRecord',
+    isDigitKbdShow: false,
+    recordWeight: '0.0'
   },
   onLoad(options) {
     wx.showShareMenu({
@@ -17,6 +19,18 @@ Page({
   navChange(e) {
     this.setData({
       pageCur: e.currentTarget.dataset.cur
+    })
+  },
+
+  showDigitKbd() {
+    this.setData({
+      isDigitKbdShow: true
+    })
+  },
+
+  hideDigitKbd() {
+    this.setData({
+      isDigitKbdShow: false
     })
   }
 })

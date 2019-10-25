@@ -2,15 +2,56 @@
 
 <weightRecord wx:if="{{pageCur==='weightRecord'}}"></weightRecord>
 <figureMeasure wx:if="{{pageCur==='figureMeasure'}}"></figureMeasure>
+<!-- <digitKeyboard isShow="{{showDigitKeyboard}}"></digitKeyboard> -->
 
  <view class="cu-bar tabbar bg-white foot shadow">
     <view class="action text-{{pageCur === 'weightRecord' ? 'cyan' : 'gray'}}"  bindtap="navChange" data-cur="weightRecord">
       <view class="cuIcon-edit"></view>体重小本
     </view>
     <view class="action text-gray add-action">
-      <button class="cu-btn cuIcon-add bg-cyan shadow"></button>
+      <button bindtap="showDigitKbd" class="cu-btn cuIcon-add bg-cyan shadow"></button>
     </view>
     <view class="action text-{{pageCur === 'figureMeasure' ? 'cyan' : 'gray'}}" bindtap="navChange" data-cur="figureMeasure">
       <view class="cuIcon-myfill"></view>身材测试
     </view>
   </view>
+
+  <!-- 自定义数字键盘 -->
+<view class="cu-modal bottom-modal {{isDigitKbdShow ? 'show' : ''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white kbd-title">
+      <view class="action date">今天</view>
+      <view class="action text-blue btn-close" bindtap="hideDigitKbd"><text class="cuIcon-unfold"></text></view>
+    </view>
+    <view class="kbd-content">
+      <view class='kbd-record'>
+        <view>{{recordWeight}}</view>
+        <view class='unit'>kg</view>
+      </view>
+      <view class='kbd-digit table'>
+        <view class='tr'>
+          <view class='td'>1</view>
+          <view class='td'>2</view>
+          <view class='td'>3</view>
+        </view>
+        <view class='tr'>
+          <view class='td'>4</view>
+          <view class='td'>5</view>
+          <view class='td'>6</view>
+        </view>
+        <view class='tr'>
+          <view class='td'>7</view>
+          <view class='td'>8</view>
+          <view class='td'>9</view>
+        </view>
+        <view class='tr'>
+          <view class='td'>.</view>
+          <view class='td'>0</view>
+          <view class='td'>×</view>
+        </view>
+      </view>
+    </view>
+    <view class='kbd-footer'>添加体重</view>
+  </view>
+</view>
+

@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "digitKeyboard": "/pages/components/digitKeyboard/digitKeyboard"
+  }
 }

@@ -70,10 +70,67 @@
   text-align:  left;
   line-height: 50prx;
   padding: 50prx 70rpx;
+  font-size: 40rpx;
 }
 
 .result-container .btn-share {
   height: 68rpx;
   margin :0;
   font-size: 30rpx;
+}
+
+.cu-dialog .kbd-title {
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center
+}
+
+.cu-dialog .kbd-title :first-child {
+  margin: 0;
+}
+
+.cu-dialog .kbd-title :last-child{
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 100rpx;
+  font-size: 50rpx;
+  color: #1cbbb4;
+}
+
+.cu-dialog .kbd-record {
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  background-color: white;
+  font-size: 55rpx;
+}
+
+.cu-dialog .kbd-record .unit {
+  font-size: 28rpx;
+  position: absolute;
+  width: 100rpx;
+  text-align: center;
+  right: 0;
+}
+
+.cu-dialog .kbd-digit{
+  font-size: 35rpx;
+  padding: 0 20rpx 10rpx 20rpx;
+}
+
+.cu-dialog .kbd-footer {
+  width: 100%;
+  height: 80rpx;
+  background-color: #1cbbb4;
+  color: white;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

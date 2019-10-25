@@ -55,7 +55,8 @@
               <view class="progress-bg" style="width:{{item.width}};background:{{item.color}}" wx:for="{{bmiLevelList}}" wx:key> {{item.value}}</view>
             </view>
             <view class='progress-level-container'>
-              <text class='progress-level' style='width:{{item.width}};' wx:for="{{bmiLevelList}}" wx:key>{{item.label}}</text>
+              <text class='progress-level' style='width:{{item.width}};' wx:for="{{bmiLevelList}}" wx:key>{{item.label}}
+              </text>
             </view>
           </view>
         <view class='bmi-analyse-content'>

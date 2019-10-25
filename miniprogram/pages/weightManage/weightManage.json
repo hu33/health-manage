@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "weightRecord": "/pages/weightManage/weightRecord/weightRecord",
-    "figureMeasure": "/pages/weightManage/figureMeasure/figureMeasure" 
+    "figureMeasure": "/pages/weightManage/figureMeasure/figureMeasure" ,
+    "ditigKeyboard": "/pages/components/digitKeyboard/digitKeyboard"
   }
 }

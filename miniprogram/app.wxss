@@ -107,3 +107,27 @@
 .text-light {
   font-weight: 300;
 }
+
+.table {
+  border: 0 solid darkgray;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.tr {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.td {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 33%;
+  height: 100rpx;
+}

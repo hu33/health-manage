@@ -12,7 +12,7 @@
       <view class="text-xl">共记录
         <text class="text-df">{{totalDays}}</text>天
       </view>
-      <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+      <!-- <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image> -->
     </view>
     <view class="padding flex text-center text-grey bg-white shadow-warp">
       <view class="flex flex-sub flex-direction solid-right">
@@ -36,6 +36,6 @@
     <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ec}}"></ec-canvas>
   </view>
   <view class='date-panel'>
-    <view wx:for="{{weekName}}">{{item}}</view>
+    <view wx:for="{{weekName}}" wx:key>{{item}}</view>
   </view>
 </view>
