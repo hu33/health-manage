@@ -47,6 +47,7 @@ function initChart(canvas, width, height) {
       }
     ],
     series: [
+
       {
         name: '今日体重',
         type: 'bar',
@@ -66,6 +67,21 @@ Component({
     addGlobalClass: true,
   },
 
+  properties: {
+    recordData: {
+      type: Object,
+      value: {
+        todayWeight: '0.0'
+      },
+      observer: function (newVal, oldVal) {
+        console.log("newVal: ", newVal);
+        console.log("oldVal: ", oldVal);
+        // this._propertyChange(newVal, oldVal);
+      } // 属性被改变时执行的函数（可选），也可以写成在methods段中定义的方法名字符串, 如：'_propertyChange'
+
+    }
+  },
+
   data: {
     ec: {
       onInit: initChart
@@ -75,6 +91,9 @@ Component({
     weekName: ['周一','周二','周三','周四','周五','周六','周日']
   },
   methods: {
+    _propertyChange: function(newVal, oldVal) {
+      
+    }
+  },
 
-  }
 })

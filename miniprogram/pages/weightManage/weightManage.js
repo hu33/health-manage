@@ -4,8 +4,10 @@ Page({
   data: {
     pageCur: 'weightRecord',
     isDigitKbdShow: false,
-    recordWeight: '0.0',
-    kbVal: ''
+    kbVal: '',
+    recordData: {
+      todayWeight: '0.0'
+    }
   },
   onLoad(options) {
     wx.showShareMenu({
@@ -31,27 +33,29 @@ Page({
 
   hideDigitKbd() {
     this.setData({
-      isDigitKbdShow: false
+      isDigitKbdShow: false,
+      kbVal: ''
     })
   },
 
   tapNum(e) {
-    // 如果小数位数超过2就不做处理
     var kbVal = this.data.kbVal;
     var demicalLength = kbVal.length - (kbVal.indexOf('.') + 1);
-    if (demicalLength > 1) {
+    // 如果小数位数超过2就不做处理
+    if ((kbVal.indexOf('.') != -1) && demicalLength > 1) {
       return;
     }
     var text = e.currentTarget.dataset.text;
     var val = kbVal + text;
+    // 如果kbVal不符合要求，就不更新data中的值
     if (!this.checkKbVal(val)) {
       return;
     }
+    // 如果点击的是“0”且kbVal为空，则不做处理
+    if (text == '0' && !kbVal) {
+      return;
+    }
     this.setKbVal(val);
-  },
-
-  tapZero() {
-
   },
 
   tapFloat() {
@@ -61,6 +65,11 @@ Page({
       return;
     }
     var val = kbVal + '.';
+    this.setKbVal(val);
+  },
+
+  tapDel() {
+    var val = this.data.kbVal.substring(0, this.data.kbVal.length - 1);
     this.setKbVal(val);
   },
 
@@ -81,5 +90,17 @@ Page({
     this.setData({
       kbVal: val
     })
+  },
+
+  addWeight() {
+    var kbVal = parseFloat(this.data.kbVal);
+    this.setData({
+      recordData: {
+        todayWeight: kbVal.toString(),
+      }
+    }, function(){
+      console.log("data.recordData: ", this.data.recordData);
+    })   
+    this.hideDigitKbd();
   }
 })

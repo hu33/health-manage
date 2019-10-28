@@ -6,7 +6,7 @@
 <view class='container' style='top:{{customBar}}px;'>
   <view class='info-panel'>
     <view class="UCenter-bg">
-      <view class='cur-weight-content'>50.0
+      <view class='cur-weight-content'>{{recordData.todayWeight}}
         <text class='text-df'>KG</text>
       </view>
       <view class="text-xl">共记录

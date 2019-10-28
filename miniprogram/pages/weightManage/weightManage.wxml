@@ -1,6 +1,6 @@
 <!--miniprogram/pages/weightManage/weightManage.wxml-->
 
-<weightRecord wx:if="{{pageCur==='weightRecord'}}"></weightRecord>
+<weightRecord wx:if="{{pageCur==='weightRecord'}}" recordData="{{recordData}}"></weightRecord>
 <figureMeasure wx:if="{{pageCur==='figureMeasure'}}"></figureMeasure>
 <!-- <digitKeyboard isShow="{{showDigitKeyboard}}"></digitKeyboard> -->
 
@@ -46,12 +46,12 @@
         </view>
         <view class='tr'>
           <view class='td' bindtap='tapFloat'>.</view>
-          <view class='td' bindtap='tapZero'>0</view>
+          <view class='td' data-text='0' bindtap='tapNum'>0</view>
           <view class='td' bindtap='tapDel'>×</view>
         </view>
       </view>
     </view>
-    <view class='kbd-footer'>添加体重</view>
+    <view class='kbd-footer' bindtap='addWeight'>添加体重</view>
   </view>
 </view>
 
