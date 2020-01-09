@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/weightManage/weightManage",
     "pages/index/index",
+    "pages/weightManage/weightManage",
     "pages/foodRecommend/foodRecommend",
     "pages/riskAssess/riskAssess"
   ],
