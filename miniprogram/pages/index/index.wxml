@@ -6,7 +6,7 @@
       <view class="nav-name">{{item.EnglishTitle}}</view>
       <text class='cuIcon-{{item.icon}}'></text>
     </navigator> -->
-    <navigator open-type="navigate" hover-class='none' url="/pages/weightManage/weightManage" class="nav-li bg-cyan" >
+    <navigator open-type="navigate" hover-class='none' url="/pages/weightManage/weightManage?openId={{openId}}" class="nav-li bg-cyan" >
       <view class="nav-title">体重管理</view>
       <view class="nav-name">Weight Management</view>
       <text class='cuIcon-edit'></text>

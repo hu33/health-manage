@@ -58,7 +58,7 @@ Page({
         console.log('callFunction test result: ', res)
         if (res.result != null) {
           this.setData({
-            openId: res.result.appid
+            openId: res.result.openid
           })
         }
       }
@@ -85,8 +85,8 @@ Page({
                 .limit(1)
                 .get({
                   success:res=>{
-                    console.log(res.data)
-                    console.log(res.data.length)
+                    // console.log(res.data)
+                    // console.log(res.data.length)
                     if (res.data.length==0){
                       users.add({
                         data: {
@@ -95,7 +95,7 @@ Page({
                           avatarUrl: that.data.avatarUrl
                         },
                         success: function (res) {
-                          console.log(res)
+                          console.log("添加用户信息成功"+res)
                         },
                         fail: console.error
                       

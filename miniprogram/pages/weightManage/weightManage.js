@@ -2,6 +2,7 @@ const app = getApp();
 
 Page({
   data: {
+    openId:'',
     pageCur: 'weightRecord',
     isDigitKbdShow: false,
     kbVal: '',
@@ -13,6 +14,14 @@ Page({
     wx.showShareMenu({
       withShareTicket: true
     });
+    this.setData(
+      {
+        openId: options.openId
+      }
+    )
+
+    console.log("体重管理 "+this.data.openId)
+
   },
   onShareAppMessage() {
     return {
