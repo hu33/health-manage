@@ -1,4 +1,9 @@
 const app = getApp();
+const db = wx.cloud.database()
+// 用户信息表
+const users = db.collection('user')
+// 用户体重记录表
+const weightRecords = db.collection('weight_record')
 
 Page({
   data: {
@@ -19,8 +24,28 @@ Page({
         openId: options.openId
       }
     )
+    console.log("用户 openid： " + this.data.openId)
 
-    console.log("体重管理 "+this.data.openId)
+    // 查询用户信息
+    users.where({
+      _openid: this.data.openId
+    }).limit(1).get({
+      success: res => {
+        console.log("用户信息")
+        console.log(res)
+      }
+    })
+    // 查询用户体重记录
+    weightRecords.where({
+      _openid: this.data.openId
+    }).get({
+      success: res => {
+        console.log("用户体重记录")
+        console.log(res)
+      }
+    })
+
+   
 
   },
   onShareAppMessage() {
