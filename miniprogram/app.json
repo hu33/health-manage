@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/weightManage/weightManage",
     "pages/foodRecommend/foodRecommend",
-    "pages/riskAssess/riskAssess"
+    "pages/riskAssess/riskAssess",
+    "pages/setting/setting"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

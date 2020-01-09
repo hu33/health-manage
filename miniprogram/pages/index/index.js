@@ -1,7 +1,19 @@
 //index.js
 const app = getApp()
+const db = wx.cloud.database()
+const users = db.collection('user')
 
 Page({
+  data: {
+    openId: '',
+    nickName: '',
+    gender: '',
+    avatarUrl: null,
+    language: '',
+    country: '',
+    province: '',
+    city: '',
+  },
   options: {
     addGlobalClass: true,
   },
@@ -40,6 +52,84 @@ Page({
     wx.showShareMenu({
       withShareTicket: true
     });
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        console.log('callFunction test result: ', res)
+        if (res.result != null) {
+          this.setData({
+            openId: res.result.appid
+          })
+        }
+      }
+    })
+    let that=this;
+    // 获取用户信息
+    wx.getSetting({
+      success(res) {
+        // console.log("res", res)
+        if (res.authSetting['scope.userInfo']) {
+          console.log("已授权=====")
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success(res) {
+              console.log("获取用户信息成功", res)
+              that.setData({
+                nickName: res.userInfo.nickName,
+                gender: res.userInfo.gender,
+                avatarUrl: res.userInfo.avatarUrl
+              })
+              users.where({
+                _openid: that.data.openId
+              })
+                .limit(1)
+                .get({
+                  success:res=>{
+                    console.log(res.data)
+                    console.log(res.data.length)
+                    if (res.data.length==0){
+                      users.add({
+                        data: {
+                          nickName: that.data.nickName,
+                          gender: that.data.gender,
+                          avatarUrl: that.data.avatarUrl
+                        },
+                        success: function (res) {
+                          console.log(res)
+                        },
+                        fail: console.error
+                      
+                      })
+                    }
+                  },
+                  fail: console.error
+                })
+            },
+            fail(res) {
+              console.log("获取用户信息失败", res)
+            }
+          })
+        } else {
+          console.log("未授权=====")
+          wx.showModal({
+            title: '提示！',
+            confirmText: '去设置',
+            showCancel: false,
+            content: "请授权",
+            success: function (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/setting/setting',
+                })
+              }
+            }
+          })
+        }
+      }
+    })
+
+
+
   },
   onShareAppMessage() {
     return {
