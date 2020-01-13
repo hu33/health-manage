@@ -1,1 +1,8 @@
-<button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权获取头像昵称 </button>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">用户授权</view>
+</cu-custom>
+<view class="padding flex flex-wrap justify-between align-center bg-white">
+<button class="cu-btn round" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权获取头像昵称 </button>
+</view>
+

@@ -7,6 +7,7 @@ const weightRecords = db.collection('weight_record')
 
 Page({
   data: {
+    userId:'',
     openId:'',
     pageCur: 'weightRecord',
     isDigitKbdShow: false,
@@ -26,13 +27,16 @@ Page({
     )
     console.log("用户 openid： " + this.data.openId)
 
-    // 查询用户信息
+    // 查询用户信息(包含用户目标体重)
     users.where({
       _openid: this.data.openId
     }).limit(1).get({
       success: res => {
         console.log("用户信息")
         console.log(res)
+        this.setData({
+          userId:res.data._id
+        })
       }
     })
     // 查询用户体重记录
@@ -136,5 +140,22 @@ Page({
       console.log("data.recordData: ", this.data.recordData);
     })   
     this.hideDigitKbd();
+  },
+  // 更新目标体重到数据库
+  updateTargetWeightToDB(val){
+    if(this.data.userId!=''){
+      users.doc(this.data.userId).update({data:{
+        target_weight:val
+      }})
+    }
+  },
+  // 添加体重记录到数据库
+  addWeightRecordToDB(date,val){
+    if(this.data.userId!=''){
+      users.add({data:{
+        date:date,
+        value:val
+      }})
+    }
   }
 })
