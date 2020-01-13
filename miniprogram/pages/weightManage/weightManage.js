@@ -34,9 +34,15 @@ Page({
       success: res => {
         console.log("用户信息")
         console.log(res)
-        this.setData({
-          userId:res.data._id
-        })
+        if(res.data.length==1){
+          this.setData({
+            userId:res.data[0]._id
+          })
+        }
+        //  *****************
+        // 更新用户信息（身高、体重、性别、年龄）  示例
+        // this.updateUserInfo(179,63,1,20)
+        // ******************
       }
     })
     // 查询用户体重记录
@@ -157,5 +163,16 @@ Page({
         value:val
       }})
     }
-  }
+  },
+    // 更新用户的个人信息（身高、体重、性别、年龄）
+    updateUserInfo(height,weight,sex,age){
+      if(this.data.userId!=''){
+        users.doc(this.data.userId).update({data:{
+          height:height,
+          weight:weight,
+          gender:sex,
+          age:age
+        }})
+      }
+    }
 })
