@@ -1,6 +1,0 @@
-/* pages/components/digitKeyboard/digitKeyboard.wxss */
-
-.btn-bottom {
-  height: 80rpx;
-  background-color: #66cccc;
-}
