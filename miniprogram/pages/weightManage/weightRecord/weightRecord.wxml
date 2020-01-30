@@ -16,15 +16,15 @@
     </view>
     <view class="padding flex text-center text-grey bg-white shadow-warp">
       <view class="flex flex-sub flex-direction solid-right">
-        <view class="text-xxl text-orange">0.5</view>
+        <view class="text-xxl text-orange">--</view>
         <view class="margin-top-sm">对比上次</view>
       </view>
       <view class="flex flex-sub flex-direction solid-right">
-        <view class="text-xxl text-blue">48</view>
+        <view class="text-xxl text-blue">{{recordData.targetWeight}}</view>
         <view class="margin-top-sm">目标体重</view>
       </view>
       <view class="flex flex-sub flex-direction">
-        <view class="text-xxl text-green">2.3</view>
+        <view class="text-xxl text-green">{{diffWeight}}</view>
         <view class="margin-top-sm">距离目标</view>
       </view>
     </view>

@@ -4,16 +4,21 @@ const db = wx.cloud.database()
 const users = db.collection('user')
 // 用户体重记录表
 const weightRecords = db.collection('weight_record')
+const NO_TARGET_TITLE = '请设置目标体重';
 
 Page({
   data: {
     userId:'',
     openId:'',
     pageCur: 'weightRecord',
+    // hasTargetWeight:  false,
     isDigitKbdShow: false,
+    dkbTitle:'',
     kbVal: '',
     recordData: {
-      todayWeight: '0.0'
+      todayWeight: '0.0',
+      targetWeight: '0.0',
+      diffWeight: '0.0'
     }
   },
   onLoad(options) {
@@ -32,8 +37,20 @@ Page({
       _openid: this.data.openId
     }).limit(1).get({
       success: res => {
-        console.log("用户信息")
-        console.log(res)
+        console.log("用户信息");
+        console.log(res);
+        // 如果没有目标体重，则弹出数字键盘
+        if(!res.data[0].target_weight) {
+          this.setData({
+            isDigitKbdShow: true,
+            dkbTitle: NO_TARGET_TITLE
+          })
+        } else {
+          this.hideDigitKbd();
+          this.setData({
+            'recordData.targetWeight': res.data[0].target_weight
+          });
+        }
         if(res.data.length==1){
           this.setData({
             userId:res.data[0]._id
@@ -54,9 +71,6 @@ Page({
         console.log(res)
       }
     })
-
-   
-
   },
   onShareAppMessage() {
     return {
@@ -71,7 +85,8 @@ Page({
 
   showDigitKbd() {
     this.setData({
-      isDigitKbdShow: true
+      isDigitKbdShow: true,
+      dkbTitle: '今天'
     })
   },
 
@@ -136,17 +151,35 @@ Page({
     })
   },
 
-  addWeight() {
-    var kbVal = parseFloat(this.data.kbVal);
+  updateTargetWeight(){
     this.setData({
-      recordData: {
-        todayWeight: kbVal.toString(),
-      }
-    }, function(){
-      console.log("data.recordData: ", this.data.recordData);
-    })   
+      isDigitKbdShow: true,
+      dkbTitle: NO_TARGET_TITLE
+    })
+  },
+
+  // 点击数字键盘底下的“添加体重”按钮触发的方法
+  addWeight() {
+    if(this.data.dkbTitle === NO_TARGET_TITLE) {
+      this.updateTargetWeightToDB(this.data.kbVal);
+      this.setData({
+        // recordData: {
+        //   targetWeight: this.data.kbVal
+        // }
+        'recordData.targetWeight': this.data.kbVal
+      })
+    } else {
+      this.setData({
+        // recordData: {
+        //   todayWeight: this.data.kbVal,
+        // }
+        'recordData.todayWeight': this.data.kbVal
+      })
+    }
+      
     this.hideDigitKbd();
   },
+
   // 更新目标体重到数据库
   updateTargetWeightToDB(val){
     if(this.data.userId!=''){
@@ -154,6 +187,7 @@ Page({
         target_weight:val
       }})
     }
+    console.log("更新目标体重成功")
   },
   // 添加体重记录到数据库
   addWeightRecordToDB(date,val){

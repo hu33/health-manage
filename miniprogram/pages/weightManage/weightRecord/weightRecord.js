@@ -71,7 +71,8 @@ Component({
     recordData: {
       type: Object,
       value: {
-        todayWeight: '0.0'
+        todayWeight: '0.0',
+        targetWeight: '0.0'
       },
       observer: function (newVal, oldVal) {
         console.log("newVal: ", newVal);
@@ -83,6 +84,7 @@ Component({
   },
 
   data: {
+    diffWeight: '--',
     ec: {
       onInit: initChart
     },
@@ -90,10 +92,16 @@ Component({
     dailyWeights: [45,45.25,45.35,45.5,45.75,46,46.5],
     weekName: ['周一','周二','周三','周四','周五','周六','周日']
   },
-  methods: {
-    _propertyChange: function(newVal, oldVal) {
-      
-    }
+  
+  attached: function(){
+    var _diffWeight = Math.abs(this.properties.recordData.targetWeight - this.properties.recordData.todayWeight);
+    console.log("_diffWeight: ", _diffWeight);
+    this.setData({
+      diffWeight: _diffWeight
+   }) 
   },
 
+  updataTargetWeight() {
+    
+  }
 })
