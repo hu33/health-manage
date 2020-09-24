@@ -10,53 +10,43 @@ function initChart(canvas, width, height) {
   });
   canvas.setChart(chart);
 
-  let option = {
-    color: ['#66cccc'],
-    tooltip: {
-      trigger: 'axis'
+  var option = {
+    color: ["#66cccc"],
+    legend: {
+      // top: 50,
+      left: 'center',
+      backgroundColor: '#66cccc',
+      z: 100
     },
     grid: {
-      left: '0',
-      right: '4%',
-      bottom: '3%',
       containLabel: true
     },
-    legend: {
-      data: ['体重']
+    tooltip: {
+      show: true,
+      trigger: 'axis'
     },
-    calculable: true,
-    xAxis: [
-      {
-        show: false,
-        type: 'category',
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-        axisTick: {
-          alignWithLabel: true
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+      // show: false
+    },
+    yAxis: {
+      x: 'center',
+      type: 'value',
+      splitLine: {
+        lineStyle: {
+          type: 'dashed'
         }
       }
-    ],
-    yAxis: [
-      {
-        show: false,
-        min: function (value) {
-          return value.min - 5;
-        },
-        max: function (value) {
-          return value.max;
-        },
-      }
-    ],
-    series: [
-
-      {
-        name: '今日体重',
-        type: 'bar',
-        data: [45.0, 45.45, 45.75, 45.75, 46, 46.25, 46.45],
-        barWidth: '65%',
-      },
-    ]
+      // show: false
+    },
+    series: {
+      type: 'line',
+      smooth: true,
+      data: [10, 30, 31, 50, 40, 20, 10]
+    }
   };
-
   chart.setOption(option);
   return chart;
 }
@@ -88,7 +78,7 @@ Component({
     },
     customBar: app.globalData.CustomBar,
     dailyWeights: [45,45.25,45.35,45.5,45.75,46,46.5],
-    weekName: ['周一','周二','周三','周四','周五','周六','周日']
+    weekName: ['6.29','6.30','7.1','7.2','7.3','7.4','7.5','7.6','7.7','7.8','7.9','7.10']
   },
   methods: {
     _propertyChange: function(newVal, oldVal) {
